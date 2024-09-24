@@ -1,4 +1,5 @@
 # Node.js
+
 # Build a general Node.js project with npm.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
@@ -19,3 +20,16 @@ steps:
     npm install
     npm run build
   displayName: 'npm install and build'
+
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Dragans Abo(8227db86-ab5c-4d58-b1bb-c4e8f1c7ccac)'
+    appType: 'webAppLinux'
+    WebAppName: 'floorplanexpertdev'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'floorplanexpert_dev'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'NODE|20-lts'
+    StartupCommand: 'npm start'  
