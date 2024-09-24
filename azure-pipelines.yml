@@ -30,6 +30,6 @@ steps:
     deployToSlotOrASE: true
     ResourceGroupName: 'floorplanexpert_dev'
     SlotName: 'production'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/dist'
     RuntimeStack: 'NODE|20-lts'
     StartupCommand: 'npm start'  
