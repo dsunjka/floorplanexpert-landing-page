@@ -6,7 +6,7 @@ pool:
 
 variables:
   azureSubscription: 'Dragans Abo(8227db86-ab5c-4d58-b1bb-c4e8f1c7ccac)'
-  webAppName: 'florplanexpert_dev'
+  webAppName: 'floorplanexpertdev'
 
 stages:
 - stage: Build
@@ -53,3 +53,4 @@ stages:
               WebAppName: $(webAppName)
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
               runtimeStack: 'NODE|18-lts'
+              ResourceGroupName: 'floorplanexpert_dev'
